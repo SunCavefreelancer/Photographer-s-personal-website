@@ -1,0 +1,210 @@
+<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
+<!DOCTYPE html>
+<!-- Оболочка документа, указываем язык содержимого -->
+<html lang="ru">
+	<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
+	<head>
+		<!-- Заголовок страницы в браузере -->
+		<title>Finance</title>
+        <!---Подключаем css-->
+		<link rel="stylesheet" href="css/rewiews.style.css" />
+
+        <link rel="stylesheet" href="css/animate.css"> <!-- подключили для анимации с сайта https://wowjs.uk/docs.html -->
+
+		<!-- Кодировка страницы -->
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+    <!-- Отображаемое тело страницы -->
+    <body>
+
+        <!-- Оболочка для демонстрации -->
+    <div class="wrapper"> <!-- wrapper -->
+            <!-- Контент -->
+            <header class="header">                                                          <!-- -------header------------- -->
+                <div class="conteiner"> <!-- который ограничит ШИРИНУ КОНТЕНТНОЙ ЧАСТИ -->   <!-- -------conteiner------------- -->
+                    <div class="header__body"> <!-- Флекс-контейнер оболочка для logo-->
+ 
+                            <div class="header__burger"> <!-- это будет бургер меню ГОРИЗОНТАЛЬНЫЕ ПОЛОСКИ -->
+                                <span></span> <!-- здесь будем рисовать СРЕДНЮЮ ПОЛОСКУ МЕНЮ -->
+                            </div>
+
+                                <nav class="header__menu">  <!-- создаем наше меню-ссылки -->   <!-- ------------menu_header-------------- -->
+                                     <ul class="header__list"> <!-- оболочка для пунктов меню -->
+                                        <li class="menu_header_link"><a href="index.html" class="menu_header_link1">Home</a></li>
+                                        <li class="menu_header_link"><a href="galereya.html" class="menu_header_link1">Gallerey</a></li>
+                                        <li class="menu_header_link"><a href="Portfolio.html" class="menu_header_link1">Portfolio</a></li>
+                                        <li class="menu_header_link"><a href="Reviews.html" class="menu_header_link1 link_vip">Reviews</a></li>
+                                        <li class="menu_header_link"><a href="contackts.html" class="menu_header_link1">Contacts</a></li>
+                                     </ul>
+                                </nav> 
+                                
+                                        <div class="header-right"> <!-- номера телефонов -->
+                                                <a href="#" class="header__logo"> <!-- внутри поместим номера телефонов  --> 
+                                                    tel:+35(058)238-45-85
+                                                </a> 
+                                                <a href="#" class="header__logo"> <!-- внутри поместим номера телефонов  --> 
+                                                    fax:+35(058)238-45-87
+                                                </a> <!-- ------------menu_header-------------- -->
+                                        </div>
+                    </div>  
+                </div>                                                         <!-- -------conteiner------------- -->
+            </header>                                                             <!-- -------header------------- -->
+
+<!-- ------------------------------------------------main---------------------------- -->
+<main class="main">
+
+
+<!-- ======================================page-2_FOTO-coments============================================ -->
+        <section  class="page-2_FOTO-coments PAGE-2">
+            <div class="page-2_FOTO-coments_conteiner _conteiner">
+
+                <div class="page-2_FOTO-coments_COLUMNS">
+
+                        <div class="page-2_FOTO-coments_COLUMN"><!-- колонка 1 -->
+                            <div class="page-2_FOTO-coments_COLUMN-FOTO _ibg"> <!-- фото -->
+                                <img src="img/01.jpg" alt="">
+                            </div>
+
+                                        <div class="page-2_FOTO-coments_COLUMN-TITLE"> <!-- комментарии  -->
+
+                                            <div class="up1"><a href="#" id="hide" onclick="return false" class="skrit-coment">Скрыть комментарии</a></div>    
+                                            <div class="up2"><a href="#" id="show" onclick="return false" class="pokazat-coment">Показать комментарии</a></div> <!-- ИЗНАЧАЛЬНО скрываем - style="display:none -->
+                    
+                                                    <div id="COMMENTS" class="box-coment" > <!-- COMMENTS для JS, box-coment для CSS -->
+                                                        <div class="coment"><span class="span-Thanks">Комментарий №1:</span>Спасибо фотографу за прекрасное фото!</div>
+                                                        <div class="coment"><span class="span-Thanks">Комментарий №2:</span>Отличная работа! Молодец!</div>
+                                                        <div class="coment"><span class="span-Thanks">Комментарий №3:</span>Думаю, эта работа точно может претендовать на премию</div>
+                                                    </div>
+
+                                        </div>
+                        </div>
+
+
+                        <div class="page-2_FOTO-coments_COLUMN"><!-- колонка 2 -->
+                            <div class="page-2_FOTO-coments_COLUMN-FOTO _ibg"> <!-- фото -->
+                                <img src="img/02.jpg" alt="">
+                            </div>
+
+                                        <div class="page-2_FOTO-coments_COLUMN-TITLE"> <!-- комментарии  -->
+
+                                            <div class="up1"><a href="#" id="hide2" onclick="return false" class="skrit-coment">Скрыть комментарии</a></div>    
+                                            <div class="up2"><a href="#" id="show2" onclick="return false" class="pokazat-coment">Показать комментарии</a></div> <!-- ИЗНАЧАЛЬНО скрываем - style="display:none -->
+                    
+                                                    <div id="COMMENTS2" class="box-coment" > <!-- COMMENTS для JS, box-coment для CSS -->
+                                                        <div class="coment"><span class="span-Thanks">Комментарий №1:</span>Очень интересные фотографии!</div>
+                                                        <div class="coment"><span class="span-Thanks">Комментарий №2:</span>Молодец!</div>
+                                                        <div class="coment"><span class="span-Thanks">Комментарий №3:</span>Успехов в дальнейшей работе фотографом</div>
+                                                    </div>
+
+                                        </div>
+                        </div>
+
+
+                        <div class="page-2_FOTO-coments_COLUMN"><!-- колонка 3 -->
+                            <div class="page-2_FOTO-coments_COLUMN-FOTO  _ibg"> <!-- фото -->
+                                <img src="img/03.jpg" alt="">
+                            </div>
+
+                                        <div class="page-2_FOTO-coments_COLUMN-TITLE"> <!-- комментарии  -->
+
+                                            <div class="up1"><a href="#" id="hide3" onclick="return false" class="skrit-coment">Скрыть комментарии</a></div>    
+                                            <div class="up2"><a href="#" id="show3" onclick="return false" class="pokazat-coment">Показать комментарии</a></div> <!-- ИЗНАЧАЛЬНО скрываем - style="display:none -->
+                    
+                                                    <div id="COMMENTS3" class="box-coment" > <!-- COMMENTS для JS, box-coment для CSS -->
+                                                        <div class="coment"><span class="span-Thanks">Комментарий №1:</span>Спасибо фотографу, фото классные!</div>
+                                                        <div class="coment"><span class="span-Thanks">Комментарий №2:</span>Отличная работа! Хороших фотоснимков!</div>
+                                                        <div class="coment"><span class="span-Thanks">Комментарий №3:</span>Согласна, приятно смотреть</div>
+                                                    </div>
+
+                                        </div>
+                        </div>
+
+                </div>
+                
+            </div>
+        </section>
+<!-- ======================================page-2_FOTO-coments============================================ -->
+
+
+
+
+
+
+
+                   
+</main>
+<!-- ------------------------------------------------main---------------------------- -->
+        
+</div>
+        
+<!-- ------------------------------------------------footer---------------------------- -->
+	<footer class="footer">
+        <section class="page-CONTACKTS-my CONTACKTS-my" >
+            <div class="page-CONTACKTS-my_conteiner _conteiner">
+        <!--  -->
+
+                <div class="page-CONTACKTS-my_TITLE">
+                    <h2>HELLO! I`am, <span class="span_Adam-Sendler">Adam Sendler</span>, a photographer, have devoted my whole life to this business, which I am very pleased with!</h2>
+                </div>
+
+
+                    <div class="page-CONTACKTS-my_tel">
+                        <div class="_tel1">
+                            <h2>tel./viber: +0(475)575-69-23</h2>
+                        </div>
+                            <div class="_tel1">
+                                <h2>tel.: +0(475)571-69-21</h2>
+                            </div>
+                                <div class="_tel1">
+                                    <h2>mail: adam.sendltr@oit.fff</h2>
+                                </div>
+                    </div>
+
+
+                                <div class="page-CONTACKTS-my_icon">
+                                    <a href="https://twitter.com/?lang=ru"><img src="img/messages.png" alt=""></a>
+                                    <a href="https://uk-ua.facebook.com/"><img src="img/icons-facebook.png" alt=""></a>
+                                    <a href="https://www.tumblr.com/"><img src="img/tumblr.png" alt=""></a>
+                                    <a href="https://www.instagram.com/"><img src="img/instagram.png" alt=""></a>
+                                    <a href="https://twitter.com/?lang=ru"><img src="img/kft.png" alt=""></a>
+                                    <a href="https://m.vk.com/"><img src="img/vk-logo.png" alt=""></a>
+                                </div>
+
+
+                                            <div class="page-CONTACKTS-my_recommended">
+                                                <h3>Recommend me to friends, acquaintances and just for a good mood, get a photo for memory!</h3>
+                                            </div>
+        <!--  -->
+            </div>
+        </section>
+   </footer>
+<!-- ------------------------------------------------footer---------------------------- -->
+
+        
+        
+        
+        
+                    <!-- Подключаем jQuery` -->
+                    <script src="https://code.jQuery.com/jQuery-3.4.1.slim.min.js" ></script> <!-- скопровали ссылку с сайта JQuery -->
+        
+                    <!-- Подключаем слайдер Slick -->
+                    <script src="js/slick.min.js"></script>
+        
+                    <!-- Подключаем файл jS скриптов -->
+                    <script src="js/script.js" ></script> <!-- здесь мы будем слайды настраивать -->
+        
+                    
+                    <script type="text/javascript"></script>
+        
+                    <!-- Подключили для анимации -->
+                    <script src="js/wow.min.js"></script> <!-- ------------подключили для анимации с сайта https://wowjs.uk/docs.html----------------- -->
+                            <script>                 
+                            new WOW().init(); 
+                            </script>               <!-- ---------подключили для анимации с сайта https://wowjs.uk/docs.html----------------------------------- -->
+            
+        
+            </body>
+            </html>
+        

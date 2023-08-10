@@ -1,0 +1,1251 @@
+/*Обнуление*/
+*,*:before,:after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    text-decoration: none;
+    letter-spacing: none;
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+
+
+
+/* ------------------------------------------------------------------- */
+html,
+body {
+    height: 100%; /* прижимаем футер КНИЗУ */
+    /*font-family: 'Lato', sans-serif; /* не сработал шрифт */
+    line-height: 1;
+    font-size: 16px;
+    color: #000;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(to right, #010152 0%, #0000ff 100%);
+}
+/* ------------------------------------------------------------------- */
+
+/* -------------------------оболочка для демонстрации----------------- */
+.wrapper {
+    min-height: 100%;/* прижимаем футер КНИЗУ */
+    display: flex; /* прижимаем футер КНИЗУ */
+    flex-direction: column; /* прижимаем футер КНИЗУ */
+    overflow: hidden;
+}
+/* -------------------------ТЕНИЧЕСКИЕ КЛАССЫ----------------- */
+._conteiner { /* общий ограничиваюий контейнер */
+    max-width: 1046px;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+._ibg { /* для всех используемых ibg */
+    position: relative;
+}
+._ibg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}/* -------------------------ТЕНИЧЕСКИЕ КЛАССЫ----------------- */
+
+
+
+/* --------------------------------------------------header------------------------------------------------------------------------ */
+.header {
+    position: fixed; /* Наша ШАПКА - HEADER будет ФИКСИРОВАННОЙ, т.е.при скроле она всеглда будет сверху кнотента */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 200;/* делаем большой z-index ЧТОБЫ поверх контента была шапка*/
+}
+
+/* --------------------создаем ПЛАШКУ РОЗОВОГО ЦВЕТА----------------------*/
+.header:before {/* создаем ПЛАШКУ */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* т.е. на ВЕСЬ РАЗМЕР НАШЕЙ ШАПОЧКИ */
+    background: linear-gradient(to bottom, #000099 0%, #01010e 100%);
+    z-index: 2;
+}
+.conteiner { /* теперь ОГРАНИЧИМ по ШИРИНЕ КОНТЕНТ */
+    max-width: 1046px; /* получилось */
+    margin: 0 auto; /* получилось */
+    padding: 0px 20px; /* получилось */
+}
+.header__body { /* теперь нам нужно ВЫТАЩИТЬ ВЕСЬ КОНТЕНТ НАВЕРХ из под ШАПКИ */
+    position: relative;
+    /*z-index: 2;*/
+    height: 80px; /* ВЫСОТА ШАПКИ header */
+
+    /* теперь продолжаем работать с ШАПКОЙ, после того как в conteiner - ОГРАНИЧИЛИ по ШИРИНЕ КОНТЕНТ */
+    display: flex; /* ЗаДАЛИ flex что бы РАЗБРОСАТЬ по СТОРОНАМ лого и пункты меню */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo { /* а размер ДЛЯ НАШЕЙ КАРТИНКИ мы укажем 60рх */
+    /*border: 1px solid #e7e7e7;*/
+    /*flex: 0 1 30%; /* КАРТИНКА сама по размеру 200рх */
+
+     /*border-radius:60%; /* делаем картинку КРУГЛОЙ */
+     /*overflow: hidden;*/ 
+   /* если у КАРТИНКИ есть ПОДРЕЗАНИЕ - пишем в header__logo img - DISPLAY: BLOCK */
+     position: relative;
+     z-index: 3;
+}
+.header-right a{
+    color: inherit;
+    color: #fffefe;
+    font-size: 15px;
+    padding: 0px 0px 0px 20px;
+}
+.header__logo img { /* если вдруг ДРУГАЯ КАРТИНКА будет БОЛЬШЕ, то чтобы потом подстроилась под НАШ РАЗМЕР */
+    max-width: 100%;
+    /*display: block;*/
+    /* DISPLAY: BLOC */
+}
+@media (max-width:780px) {
+    .header-right a { /* уменьшаем ВЫСОТУ ШАПКИ header  */
+        font-size: 13px;
+        flex-wrap: wrap;
+        padding: 0px 0px 0px 10px;
+    }
+}
+@media (max-width:345px) {
+    .header-right a { /* уменьшаем ВЫСОТУ ШАПКИ header  */
+        font-size: 13px;
+        display: flex;
+        flex-direction: column;
+        padding: 5px 0px 0px 0px;
+    }
+}
+
+
+
+/* --------------------------------------------------ПЕРЕХОДИМ К верстке самих ПУНКТОВ МЕНЮ---------------------------------- */
+.header__list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+}
+
+.menu_header_link { /* все ссылки отступы */
+    /*padding: 0px 0px 0px 10px;*/
+    list-style: none; /* убираем ТОЧКИ перед ПУНКАМИ МЕНЮ */ /* получилось */
+    margin: 0px 20px 0px 0px; /* получилось */
+    text-transform: uppercase;
+    font-family: 'Noto Serif Balinese', serif;
+    font-size: 20px; /* если сделать шрифт меньше, СКРОЛА не будет */
+
+    /* ---------------------------------------------------ДЕЛАЕМ интересное подчеркивание пунктов меню-------------------------------------- */
+    background: linear-gradient(#6a8efa 0 0) top/var(--t,0) 2px no-repeat;
+    transition: 0.5s; /* плавный переход-анимация */
+}
+    /* что бы заработало добавляем HOVER --t: */
+    .menu_header_link:hover {
+    --t: 100%;
+}
+
+.menu_header_link1 {  /* задаем всем ссылкам размер, шрифт, цвет */
+    font-size: 20px;
+    font-weight: 700;
+    color: #faf6f6;
+    text-shadow: 0.5px 0px 0px #0e0d0d;
+    font-family: 'Noto Sans Mono', monospace;
+
+}
+.menu_header_link1:hover {
+    color: #52515a;
+    transition: 0.7s;
+} 
+.link_vip { /* -------------------выделяем отдельно ссылку в меню -----------------  */
+    color: #6a8efa;
+}
+.link_vip:hover {
+    color: #faf6f6;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+
+ /* --------------------------------------------------переходим к верстке БУРГЕР-МЕНЮ--------------------------------- */
+.header__burger {
+    display: none;
+}
+.header__menu {
+}
+
+
+
+/* --------------------------------------------------ПЕРЕХОДИМ К верстке Медиа-Запрос для 767px-экранов---------------------------------- */
+
+/* будет выскакивать БУРГЕР-МЕНЮ при уменьшеении ЭКРАНОВ  */
+
+@media (max-width:767px) {
+    .header__body { /* уменьшаем ВЫСОТУ ШАПКИ header  */
+        height: 50px;
+    }
+    .header__logo { /* уменьшаем размер ЛОГО-фото */
+        flex: 0 0 40px;
+    }
+    /* это будет бургер меню */
+    .header__burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 3;
+    } 
+
+
+    /* --------------------------здесь мы РИСУЕМ ПОЛОСОЧКИ БУРГЕР */ /* общие настройки-------------------------- */
+    .header__burger:before,
+    .header__burger:after {
+        content: "";
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s; /* теперь переходят плавно полосочки */
+    }
+
+    /* --------------------------здесь мы РИСУЕМ Верхнюю ПОЛОСУ БУРГЕР-------------------------- */
+    .header__burger:before {
+        top: 0;  
+    }
+     /* --------------------------здесь мы РИСУЕМ Нижнюю ПОЛОСУ БУРГЕР-------------------------- */
+    .header__burger:after {
+        bottom: 0;  
+    }
+     /* --------------------------здесь мы РИСУЕМ СРЕДНЮЮ ПОЛОСУ БУРГЕР--------------------------- */
+    .header__burger span {
+        position: absolute;
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 9px;
+        transition: all 0.3s ease 0s; /* теперь переходят плавно полосочки */
+    }
+
+    .header__burger.active:before {
+        transform: rotate(45deg); /* делаем палочку теперь на 45`,т.е.она стала по диагонале */
+        top: 9px; /* теперь подняли ее на центр */
+    }
+    .header__burger.active:after {
+        transform: rotate(-45deg); /* делаем палочку теперь на 45`,т.е.она стала по диагонале */
+        bottom: 9px; /* теперь подняли ее на центр */
+    }
+    .header__burger.active span {
+        transform: scale(0); /* убираем среднюю полосочку */
+    }
+    /* --------------------------здесь мы Закончили РИСОВАТЬ - БУРГЕ-------------------------- */
+
+
+
+    /* -----------------теперь стилизуем МЕНЮ----------------- */
+    .header__menu {
+        /* Делаем ПЛАСТИНУ которая будет ВЫЕЗЖАТЬ для пунктов меню */
+        position: fixed;
+        top: -100%; /* меню будет сьезжать сверху */
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* будет скрол при повороте экрана телефона */
+        transition: all 0.3s ease 0s; /* теперь переходит плавно */    
+        background-color: #010152; 
+        padding: 70px 10px 20px 10px; /* пункты меню вытащили из розовой плашки в РЯД */
+    }
+    .header__menu.active {
+        top: 0;
+    }
+
+    .header__list {
+        display: block; /* меню пункты встали в КОЛОНКУ */
+        text-align: center;
+    }
+    .header__list li { /* теперь сделали отступы между строчками меню в колонке */
+        margin: 0px 0px 20px 0px;
+    }
+
+    .header__list li {
+    font-size: 27px; /* сделали шрифт больше (с 20рх на 27рх), для СКРОЛА телефонов в горизонтальном положении!*/
+    }
+
+}/* -----------------------------------------------закончили МЕДИА-ЗАПРОСЫ-------------------------------------------- */
+
+
+
+/* =====================================================page-1_HOME=============================================================== */
+.page-1_HOME {
+    padding: 150px 0px 200px 0px;
+
+    position: relative; /* позиционируем глафное фото */
+}
+@media (max-width:456px) {
+    .page-1_HOME {
+        padding: 50px 0px 50px 0px;
+    }
+}
+
+.PAGE-1 {
+}
+
+.page-1_HOME_conteiner {
+}
+._conteiner {
+}
+
+
+.page-1_SALE-TITLE {  /* ---TITLE  We have discounts----*/
+    padding: 100px 0px 30px 0px;
+    line-height: 50%;
+    font-size: 25px;
+    font-weight: 900;
+    color: #fdfdfd;
+    font-family: 'Noto Sans Mono', monospace;
+    display: inline-block;
+
+        /* ---------------------------------------------------ДЕЛАЕМ интересное подчеркивание пунктов меню-------------------------------------- */
+        background: linear-gradient(#ff9204 0 0) bottom/var(--t,0) 2px no-repeat;
+        transition: 0.5s; /* плавный переход-анимация */
+}
+        /* что бы заработало добавляем HOVER --t: */
+    .page-1_SALE-TITLE:hover {
+        --t: 100%;
+
+        cursor: pointer;
+        transition: 0.8s;
+
+}
+@media (max-width:350px) {
+    .page-1_SALE-TITLE {    
+        padding: 50px 0px 30px 0px;
+    }
+}
+
+/* фото-лого */
+.page-1_HOME_foto-logo { /* позиционируем глафное фото */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-bottom: 80px solid #ff7519;
+    z-index: 2;
+
+    /*clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);*/
+}
+@media (max-width:767px) {
+    .page-1_HOME_foto-logo  {
+        border-bottom: 70px solid #ff7519;
+    }
+}
+
+@media (max-width:456px) {
+    .page-1_HOME_foto-logo  {
+        border-bottom: 50px solid #ff7519;
+    }
+}
+._ibg {
+}
+/* фото-лого */
+
+
+.page-1_TEXT {
+    padding: 100px 0 0px 0;
+}
+.page-1_TEXT >*:not(:last-child) {
+    padding: 0px 0px 30px 0px;
+}
+@media (max-width:456px) {
+    .page-1_TEXT {
+        padding: 40px 0 20px 0;
+    }
+}
+
+.page-1_HOME_TITLE h2{
+    position: relative;
+    z-index: 3;
+    font-family: 'Anton', sans-serif;
+    text-shadow: 3px 0.5px 1px #5a75f0;
+    color: #fff;
+    font-size: 75px;
+
+    line-height: 140%;
+    text-align: left;
+}
+@media (max-width:767px) {
+    .page-1_HOME_TITLE h2 {
+        font-size: 60px;
+    }
+}
+
+@media (max-width:615px) {
+    .page-1_HOME_TITLE h2 {
+        font-size: 45px;
+    }
+}
+
+.span_your-idea {
+    text-transform: uppercase;
+    color: #ff7519;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 900;
+    text-shadow: 2px 1px 0px #fff;
+    cursor: pointer;
+
+ /* ---------------------------------------------------ДЕЛАЕМ интересное подчеркивание пунктов меню-------------------------------------- */
+    background: linear-gradient(#ff7519 0 0)  bottom/var(--t,0) 2px no-repeat;
+    transition: 0.5s; /* плавный переход-анимация */
+}
+        /* что бы заработало добавляем HOVER --t: */
+    .span_your-idea:hover {
+        --t: 100%;
+}
+
+
+.page-1_HOME_SUBTITLE {
+    position: relative;
+    z-index: 3;
+    letter-spacing: 2px;
+    color: #fff;
+    font-size: 40px;
+    font-family: 'Anton', sans-serif;
+    text-align: left;
+    text-shadow: 3px 0.5px 1px #5a75f0;
+}
+@media (max-width:767px) {
+    .page-1_HOME_SUBTITLE {
+        font-size: 30px;
+    }
+}
+
+@media (max-width:615px) {
+    .page-1_HOME_SUBTITLE {
+        font-size: 25px;
+    }
+}
+@media (max-width:540px) {
+    .page-1_HOME_SUBTITLE {
+        font-size: 20px;
+        line-height: 170%;
+    }
+}
+
+.page-1_HOME_SUB-SUBTITLE {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-align: left;    
+    cursor: pointer;
+    display: inline-block;
+    line-height: 200%;
+    font-family: 'Anton', sans-serif;
+
+    /* ---------------------------------------------------ДЕЛАЕМ интересное подчеркивание пунктов меню-------------------------------------- */
+    background: linear-gradient(#ff7519 0 0)  bottom/var(--t,0) 2px no-repeat;
+    transition: 0.5s; /* плавный переход-анимация */
+}
+    /* что бы заработало добавляем HOVER --t: */
+    .page-1_HOME_SUB-SUBTITLE:hover {
+    --t: 100%;
+}
+
+.span_your-idea2 {
+    color: #ff7519;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 1px 0.5px 1px #fff;
+}
+
+
+/* -podpis- */
+.podpis {
+    margin: 30px 0px 0px 0px;
+    position: relative;
+    padding: 0px 0px 30% 0px;   
+}
+.podpis img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+
+}
+._ibg {
+}
+
+/* -podpis- */
+
+/* =====================================================page-1_HOME=============================================================== */
+
+
+/* =====================================================page-Abou-As=============================================================== */
+
+.page-Abou-As {
+    padding: 80px 0px 80px 0px;
+}
+.ABOUT-AS {
+}
+
+.page-Abou-As_conteiner {
+}
+._conteiner {
+}
+
+
+.page-Abou-As-BLOG-FLEX {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+/* foto фотографа */
+.page-Abou-As_img {
+    position: relative;
+    padding: 0px 50% 50% 0px;
+}
+@media (max-width:992px) {
+    .page-Abou-As_img {
+        margin: 0 auto;
+    }    
+}
+
+.page-Abou-As_img img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /*border: 1px solid white;*/
+
+    flex: 0 1 60%;
+    margin: 0 5px;
+    box-shadow: 0 5px 40px #b1b0b0;
+    border-radius: 10%;
+}
+@media (max-width:992px) {
+    .page-Abou-As_img img {
+        flex: 0 1 100%;
+
+    }    
+}
+
+._ibg {
+}
+/* foto фотографа */
+
+
+.page-Abou-As_TEXT {
+    flex: 0 1 40%;
+    margin: auto 5px;
+}
+@media (max-width:992px) {
+    .page-Abou-As_TEXT {
+        flex: 0 1 100%;
+        margin: 60px 20px 0 0 ;
+    }    
+}
+.page-Abou-As_TITLE {
+    font-size: 25px;
+    color: #fff9f9;
+    font-weight: 800;
+
+    padding: 0px 0px 0px 25px;
+}
+.page-Abou-As_SUBTITLE {
+    font-size: 20px;
+    line-height: 162%;
+    color: #fff9f9;
+    padding: 20px 0px 0px 25px;
+
+}
+.page-Abou-As_SUBTITLE a {
+    color: inherit;
+    color: #ff970f;
+    font-weight: 800;
+    margin-left: 20px;
+}
+.podpis {
+    filter:saturate(100)
+}
+/* ====================================================page-Abou-As========================================================== */
+
+
+
+
+
+
+/* -----------------------------------------------page-Image-Gallerey--------------------------------------------------------------- */
+
+.Image-Gallerey-conteiner { /* свой ограничивающий контейнер */
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.Image-Gallerey-TITLE {
+    padding: 50px 0px 50px 0px;
+    text-align: left;
+    line-height: 50%;
+    font-size: 25px;
+    font-weight: 900;
+    color: #fdfdfd;
+    font-family: 'Noto Sans Mono', monospace;
+
+}
+
+.Image-Gallerey-conteiner .img-conteiner { /* поставили все по ЦЕНТРУ с отступами между собой */
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.Image-Gallerey-conteiner .img-conteiner .img  {
+    width: 350px;
+    height: 250px;
+    border: 10px solid #fff;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    padding: 15px;
+    color: #fff;
+}
+.Image-Gallerey-conteiner .img-conteiner .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.Image-Gallerey-conteiner .img-conteiner .img:hover img{
+    transform: scale(1.1);  /* красивый эфект увеличения фото */
+}
+
+/* - */
+
+.Image-Gallerey-conteiner .pop-up {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.8); /* затемнили фон под большим фото */
+
+    display: none; /* убрали нарисованый крестик */
+}
+
+/* размещаем большое фото ПО ЦЕНТРУ */
+.Image-Gallerey-conteiner .pop-up img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid #fff;
+    border-radius: 8px;
+    width: 500px; /* здесь задаем размер фото которое будет УВЕЛИЧИВАТЬСЯ при нажатии */
+}
+
+
+/* теперь размещаем крестик */
+.Image-Gallerey-conteiner .pop-up span {
+    position: fixed;
+    z-index: 2;
+    top: 150px;
+    right: 350px;
+    width: 40px;
+    height: 40px;
+    background: #fff; 
+
+    font-size: 50px; /* ---задали размер крестику--- */
+    font-weight: 900;
+    text-align: center; /* поставили ПО ЦЕНТРУ белого фона */
+    line-height: 40px;  /* поставили ПО ЦЕНТРУ белого фона */
+    border-radius: 50%;
+    cursor: pointer;
+}/* теперь размещаем крестик */
+@media (max-width:1290px) {
+    .Image-Gallerey-conteiner .pop-up span {
+        position: fixed;
+        top: 150px;
+        right: 50px;
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (max-width:767px) {
+    .Image-Gallerey-conteiner .pop-up span {
+        position: fixed;
+        top: 150px;
+        right: 50px;
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (max-width:480px) {
+    .Image-Gallerey-conteiner .pop-up span {
+        position: fixed;
+        top: 150px;
+        right: 50px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* теперь активируем крестик в js */
+
+/* -------------------------------------------------page-Image-Gallerey---------------------------------------------------- */
+
+
+
+
+/* =============================================sliderbig====================================================== */
+
+/* --------------------------------------------------------------------------- */
+.page_Slick-slider {    
+    padding: 0px 0px 50px 0px;
+    z-index: 1;
+}
+
+.PAGE_Slick{}
+
+.page_Slick-slider_conteiner {
+}
+._conteiner {}
+
+
+.slider {
+    padding: 0px 0px 0px 0px;
+}
+
+/* Ограничивающая оболочка */
+.slick-list { /* что бы не выглядывал край соседней фотографии СБОКУ */
+    overflow: hidden;
+}
+/* --------------------------------------------------------------------------- */
+ 
+/* Лента слайдов */ /* что бы все фото выстроились в РЯД */
+.slick-track{
+    display: flex;
+} /* 1). уже работает СЛАЙДЕР, можно листать картинки */
+
+
+/* --------------------------------------------------------------------------- */
+/* Стилизуем кнопки - точки */
+/* Точки (булиты) */
+.slider .slick-dots{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider .slick-dots li{ /* растояние между кнопками-булитами */
+    list-style: none;
+    margin: 0px 10px;
+}
+.slider .slick-dots button{
+    font-size: 0;
+    width: 15px; /* размер кнопки */
+    height: 15px; /* размер кнопки */
+    background-color: rgb(249, 248, 255);
+    border-radius: 50%; /* круглые кнопки */
+    cursor: pointer;
+}
+.slider .slick-dots li.slick-active button { /* делаем активную кнопку прозрачной */
+    background-color: transparent;
+    border: 2px solid #fbfbff;
+}
+/* --------------------------------------------------------------------------- */
+/* Здесь мы стилизуем для -КОНКРЕТНОГО СЛАДЙА- кнопки */
+.slider {
+    position: relative;
+    padding: 0px 60px; /* сделали отступы картинок от стрелок */
+}
+/* Стрелка */  
+.slider .slick-arrow{
+    position: absolute;
+    top: 50%;
+    margin: -40px 20px 0px 20px; /* выравниваем стрелку по центру картинки и страницы */
+    z-index: 10;
+    font-size: 0; /* убираем надписи на кнопках (теперь кнопки исчезли) */
+    width: 30px;
+    height: 60px;
+    border: none;
+    
+}
+/* Стрелка ВЛЕВО*/ 
+.slider .slick-arrow.slick-prev{ /* здесь мы обращаемся к конктреной стрелке ВЛЕВО */
+    left: 0;
+    background: url(img-2/стрелка\ влево.png) 0 0 / 100% no-repeat; /* а здесь добавляем фото стрелочки ВЛЕВО */
+    cursor: pointer;
+    color: #c521f2;
+} 
+/* Стрелка ВПРАВО*/ 
+.slider .slick-arrow.slick-next{ /* здесь мы обращаемся к конктреной стрелке ВПРАВО */
+    right: 0;
+    background: url(img-2/стрелка\ вправо3.png)  0 0 / 100% no-repeat; /* а здесь добавляем фото стрелочки ВПРАВО  */
+    cursor: pointer;
+} 
+/* --------------------------------------------------------------------------- */
+
+.slider__item img {
+    border: 1px double #020bb1; /* сделали рамочку фотографиям */
+    max-width: 100%; /* адапитив фото при уменьшении */
+    cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------- */
+.slider__item {
+    text-align: center;/* поставили ПО ЦЕНТРУ картинки */
+
+    transition: all 0.3s ease 0s;
+    opacity: 0.4;
+}
+/* тогда здесь пишем 1 фото будет не прозрачным */ /* и в js пишем: centerMode:true */
+.slider__item.slick-center {
+    opacity: 1;
+}
+/* -------------------------------------slider-------------------------------------- */
+
+
+.sliderbig {
+    padding: 30px 0px 0px 0px;
+    position: relative; /* прячем большое фото под плашку-меню */
+    z-index: 1;        /* прячем большое фото под плашку-меню */
+}
+.sliderbig__item {
+    text-align: center; /* выравниваем фото ПО ЦЕНТРУ */
+}
+
+.sliderbig__item img {
+    max-width: 100%;
+    cursor: pointer;
+}
+
+/* =============================================sliderbig================================================== */
+
+
+
+
+/* ===============================================sliderFON================================================ */
+
+
+.page_sliderFON {
+    padding: 50px 0px 0px 0px;
+}
+.PAGE_sliderFON {
+}
+
+.sliderFON {
+}
+.sliderFON__item img {
+    max-width: 100%;
+    height: 500px;
+    width: 100%;
+}
+@media (max-width:767px) {
+    .sliderFON__item img {
+        height: 400px; /* задаем ВЫСОТУ нашим фото-фонам */;
+    }    
+}
+@media (max-width:600px) {
+    .sliderFON__item img {
+        height: 300px; /* задаем ВЫСОТУ нашим фото-фонам */;
+    }    
+}
+@media (max-width:450px) {
+    .sliderFON__item img {
+        height: 200px; /* задаем ВЫСОТУ нашим фото-фонам */;
+    }    
+}
+@media (max-width:320px) {
+    .sliderFON__item img {
+        height: 150px; /* задаем ВЫСОТУ нашим фото-фонам */;
+    }    
+}
+/* -------------------------------------------------------------------------- */
+/* Ограничивающая оболочка */
+.slick-list { /* что бы не выглядывал край соседней фотографии СБОКУ */
+    overflow: hidden;
+}
+/* --------------------------------------------------------------------------- */
+ 
+/* Лента слайдов */ /* что бы все фото выстроились в РЯД */
+.slick-track{
+    display: flex;
+} /* 1). уже работает СЛАЙДЕР, можно листать картинки */
+/* ---------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------- */
+/* Стилизуем кнопки - точки */
+/* Точки (булиты) */
+.sliderFON .slick-dots{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sliderFON .slick-dots li{ /* растояние между кнопками-булитами */
+    list-style: none;
+    margin: 0px 10px;
+}
+.sliderFON .slick-dots button{
+    font-size: 0;
+    width: 15px; /* размер кнопки */
+    height: 15px; /* размер кнопки */
+    background-color: rgb(249, 248, 255);
+    border-radius: 50%; /* круглые кнопки */
+}
+.sliderFON .slick-dots li.slick-active button { /* делаем активную кнопку прозрачной */
+    background-color: transparent;
+    border: 2px solid #f5de14;
+}
+
+/* Здесь мы стилизуем для -КОНКРЕТНОГО СЛАДЙА- кнопки */
+
+/* Стрелка */  
+
+/* Стрелка ВЛЕВО*/ 
+
+/* Стрелка ВПРАВО*/ 
+
+/* --------------------------------------------------------------------------- */
+.sliderFON__item {
+    text-align: center;/* поставили ПО ЦЕНТРУ картинки */
+}
+/* тогда здесь пишем 1 фото будет не прозрачным */ /* и в js пишем: centerMode:true */
+.sliderFON__item.slick-center {
+
+}
+
+/* ==============================================sliderFON================================================= */
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================page-2_FOTO-coments================================================================ */
+.page-2_FOTO-coments {
+    padding: 40px 0px 80px 0px;
+}
+@media (max-width:767px) {
+    .page-2_FOTO-coments {
+        padding:0px 0px 0px 0px;    
+}
+}
+
+@media (max-width:350px) {
+    .page-2_FOTO-coments {
+        padding:0px 0px 0px 0px;    
+}
+}
+.PAGE-2 {
+}
+
+
+.page-2_FOTO-coments_conteiner {
+}
+._conteiner {
+}
+
+
+.page-2_FOTO-coments_COLUMNS {
+    padding: 30px 0px 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.page-2_FOTO-coments_COLUMN {
+    flex: 0 1 33.333%;
+    padding: 0 15px;
+}
+@media (max-width:992px) {
+    .page-2_FOTO-coments_COLUMN {
+        flex: 0 1 50%;
+        padding: 0px 15px 30px 15px;
+    }
+}
+@media (max-width:600px) {
+    .page-2_FOTO-coments_COLUMN {
+        flex: 0 1 100%;
+        padding: 0px 15px 25px 15px;
+    }
+}
+
+
+
+/* фото */
+.page-2_FOTO-coments_COLUMN-FOTO {
+    position: relative;
+    padding: 0px 0px 155% 0px;
+}
+.page-2_FOTO-coments_COLUMN-FOTO img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+._ibg {
+}
+/* фото */
+
+
+.page-2_FOTO-coments_COLUMN-TITLE {
+    padding: 20px 0px 0px 0px;
+}
+
+.page-2_FOTO-coments_COLUMN-TITLE a{
+    color: inherit;    
+}
+.up1 {
+    font-size: 16px;
+    font-family: 'Lobster', cursive;
+    color: darkblue;
+    padding: 0px 0px 10px 0px;
+
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    padding: 8px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.up2 {
+    font-size: 16px;
+    font-family: 'Lobster', cursive;
+    color: darkblue;
+
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    padding: 8px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px 0px 0px 0px;
+}
+
+
+/* - */
+.skrit-coment::before { /* Скрыть комментарии */
+    content: "*";
+    margin-right: 5px;
+}
+.skrit-coment::after { /* Скрыть комментарии */
+    content: "*";
+    margin-left: 5px;
+}
+@media (max-width:675px) {
+    .skrit-coment{
+        font-size: 14px;
+    }
+}
+
+
+.skrit-coment:hover {
+    color: #ac9b9b;
+    cursor: pointer;
+    transition: 0.8s;
+}
+/* - */
+
+.pokazat-coment::before { /* Скрыть комментарии */
+    content: "*";
+    margin-right: 5px;
+}
+.pokazat-coment::after { /* Скрыть комментарии */
+    content: "*";
+    margin-left: 5px;
+}
+@media (max-width:675px) {
+    .pokazat-coment{
+        font-size: 14px;
+    }
+}
+
+
+.pokazat-coment:hover{ /* Показать комментарии */
+        color: #ff7519;
+        cursor: pointer;
+        transition: 0.8s;
+}
+/* - */
+
+.box-coment {
+    padding: 20px 0px 0px 0px;
+    line-height: 142%;
+
+}
+.span-Thanks {
+    font-size: 16px;
+    font-family: 'Lobster', cursive;
+    color: #fff;
+    padding: 0px 10px 0px 0px;
+
+}
+@media (max-width:767px) {
+    .span-Thanks {
+        font-size: 14px;
+    }
+}
+
+.coment { /* все ссылки  */
+    font-size: 15px;    
+    font-style: italic;
+    color: #e0d3d3;
+}
+@media (max-width:767px) {
+    .coment { /* все ссылки  */
+        font-size: 14px; 
+    }
+}
+
+
+
+/* ------------------------------------footer----------------------------------- */
+.footer {
+    background: linear-gradient(to bottom, #000099 0%, #01010e 100%);
+    border-top: 1px solid #686767;
+}
+.page-CONTACKTS-my {
+    padding: 50px 0px 50px 0px;
+}
+.CONTACKTS-my {
+}
+
+
+.page-CONTACKTS-my_conteiner {
+}
+._conteiner {
+}
+
+.span_Adam-Sendler {
+    color: #ff970f;
+    font-size: 25px;
+    font-weight: 800;
+    text-shadow: 1px 0 0 #0e0d0d;
+}
+.span_Adam-Sendler:hover {
+    cursor: pointer;
+    transition: 0.8s;
+    text-decoration: underline;
+}
+
+.page-CONTACKTS-my_TITLE {
+    font-size: 20px;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #faf6f6;
+}
+@media (max-width:972px) {
+    .page-CONTACKTS-my_TITLE  {
+        font-size: 18px;
+        line-height: 160%;
+    }
+    
+}
+
+.page-CONTACKTS-my_tel >*:not(:last-child) {
+    padding: 0px 0px 15px 0px;
+}
+.page-CONTACKTS-my_tel {
+    padding: 20px 0px 0px 0px;
+    color: #faf6f6;
+    font-size: 20px;
+}
+.page-CONTACKTS-my_tel {
+
+}
+._tel1:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.page-CONTACKTS-my_icon {
+    display: flex;
+    padding: 30px 0px 30px 0px;
+}
+@media (max-width:972px) {
+    .page-CONTACKTS-my_icon {
+        flex-wrap: wrap;
+    }
+}
+
+.page-CONTACKTS-my_icon  img {
+    height: 50px;
+    margin-right: 20px;
+}
+@media (max-width:440px) {
+    .page-CONTACKTS-my_icon  img {
+        margin-bottom: 20px;
+    }
+}
+
+.page-CONTACKTS-my_icon  img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.8s;
+    opacity: 0.5;
+}
+
+.page-CONTACKTS-my_recommended {
+    padding: 20px 0px 0px 0px;
+    color: #faf6f6;
+    font-size: 20px;
+    font-style: italic;
+}
+@media (max-width:972px) {
+    .page-CONTACKTS-my_recommended  {
+        font-size: 18px;
+        line-height: 160%;
+    }
+    
+}
+/* ------------------------------------footer----------------------------------- */

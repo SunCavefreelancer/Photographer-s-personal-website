@@ -1,0 +1,544 @@
+/*Обнуление*/
+*,*:before,:after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    text-decoration: none;
+    letter-spacing: none;
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+
+
+
+/* ------------------------------------------------------------------- */
+html,
+body {
+    height: 100%; /* прижимаем футер КНИЗУ */
+    /*font-family: 'Lato', sans-serif; /* не сработал шрифт */
+    line-height: 1;
+    font-size: 16px;
+    color: #000;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(to right, #010152 0%, #0000ff 100%);
+}
+/* ------------------------------------------------------------------- */
+
+/* -------------------------оболочка для демонстрации----------------- */
+.wrapper {
+    min-height: 100%;/* прижимаем футер КНИЗУ */
+    display: flex; /* прижимаем футер КНИЗУ */
+    flex-direction: column; /* прижимаем футер КНИЗУ */
+    overflow: hidden;
+}
+/* -------------------------ТЕНИЧЕСКИЕ КЛАССЫ----------------- */
+._conteiner { /* общий ограничиваюий контейнер */
+    max-width: 1046px;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+._ibg { /* для всех используемых ibg */
+    position: relative;
+}
+._ibg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}/* -------------------------ТЕНИЧЕСКИЕ КЛАССЫ----------------- */
+
+
+
+/* --------------------------------------------------header------------------------------------------------------------------------ */
+.header {
+    position: fixed; /* Наша ШАПКА - HEADER будет ФИКСИРОВАННОЙ, т.е.при скроле она всеглда будет сверху кнотента */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 200;/* делаем большой z-index ЧТОБЫ поверх контента была шапка*/
+}
+
+/* --------------------создаем ПЛАШКУ РОЗОВОГО ЦВЕТА----------------------*/
+.header:before {/* создаем ПЛАШКУ */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* т.е. на ВЕСЬ РАЗМЕР НАШЕЙ ШАПОЧКИ */
+    background: linear-gradient(to bottom, #000099 0%, #01010e 100%);
+    z-index: 2;
+}
+.conteiner { /* теперь ОГРАНИЧИМ по ШИРИНЕ КОНТЕНТ */
+    max-width: 1046px; /* получилось */
+    margin: 0 auto; /* получилось */
+    padding: 0px 20px; /* получилось */
+}
+.header__body { /* теперь нам нужно ВЫТАЩИТЬ ВЕСЬ КОНТЕНТ НАВЕРХ из под ШАПКИ */
+    position: relative;
+    /*z-index: 2;*/
+    height: 80px; /* ВЫСОТА ШАПКИ header */
+
+    /* теперь продолжаем работать с ШАПКОЙ, после того как в conteiner - ОГРАНИЧИЛИ по ШИРИНЕ КОНТЕНТ */
+    display: flex; /* ЗаДАЛИ flex что бы РАЗБРОСАТЬ по СТОРОНАМ лого и пункты меню */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo { /* а размер ДЛЯ НАШЕЙ КАРТИНКИ мы укажем 60рх */
+    /*border: 1px solid #e7e7e7;*/
+    /*flex: 0 1 30%; /* КАРТИНКА сама по размеру 200рх */
+
+     /*border-radius:60%; /* делаем картинку КРУГЛОЙ */
+     /*overflow: hidden;*/ 
+   /* если у КАРТИНКИ есть ПОДРЕЗАНИЕ - пишем в header__logo img - DISPLAY: BLOCK */
+     position: relative;
+     z-index: 3;
+}
+.header-right a{
+    color: inherit;
+    color: #fffefe;
+    font-size: 15px;
+    padding: 0px 0px 0px 20px;
+}
+.header__logo img { /* если вдруг ДРУГАЯ КАРТИНКА будет БОЛЬШЕ, то чтобы потом подстроилась под НАШ РАЗМЕР */
+    max-width: 100%;
+    /*display: block;*/
+    /* DISPLAY: BLOC */
+}
+@media (max-width:780px) {
+    .header-right a { /* уменьшаем ВЫСОТУ ШАПКИ header  */
+        font-size: 13px;
+        flex-wrap: wrap;
+        padding: 0px 0px 0px 10px;
+    }
+}
+@media (max-width:345px) {
+    .header-right a { /* уменьшаем ВЫСОТУ ШАПКИ header  */
+        font-size: 13px;
+        display: flex;
+        flex-direction: column;
+        padding: 5px 0px 0px 0px;
+    }
+}
+
+
+
+/* --------------------------------------------------ПЕРЕХОДИМ К верстке самих ПУНКТОВ МЕНЮ---------------------------------- */
+.header__list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+}
+
+.menu_header_link { /* все ссылки отступы */
+    /*padding: 0px 0px 0px 10px;*/
+    list-style: none; /* убираем ТОЧКИ перед ПУНКАМИ МЕНЮ */ /* получилось */
+    margin: 0px 20px 0px 0px; /* получилось */
+    text-transform: uppercase;
+    font-family: 'Noto Serif Balinese', serif;
+    font-size: 20px; /* если сделать шрифт меньше, СКРОЛА не будет */
+
+    /* ---------------------------------------------------ДЕЛАЕМ интересное подчеркивание пунктов меню-------------------------------------- */
+    background: linear-gradient(#6a8efa 0 0) top/var(--t,0) 2px no-repeat;
+    transition: 0.5s; /* плавный переход-анимация */
+}
+    /* что бы заработало добавляем HOVER --t: */
+    .menu_header_link:hover {
+    --t: 100%;
+}
+
+.menu_header_link1 {  /* задаем всем ссылкам размер, шрифт, цвет */
+    font-size: 20px;
+    font-weight: 700;
+    color: #faf6f6;
+    text-shadow: 0.5px 0px 0px #0e0d0d;
+    font-family: 'Noto Sans Mono', monospace;
+
+}
+.menu_header_link1:hover {
+    color: #52515a;
+    transition: 0.7s;
+} 
+.link_vip { /* -------------------выделяем отдельно ссылку в меню -----------------  */
+    color: #6a8efa;
+}
+.link_vip:hover {
+    color: #faf6f6;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+
+ /* --------------------------------------------------переходим к верстке БУРГЕР-МЕНЮ--------------------------------- */
+.header__burger {
+    display: none;
+}
+.header__menu {
+}
+
+
+
+/* --------------------------------------------------ПЕРЕХОДИМ К верстке Медиа-Запрос для 767px-экранов---------------------------------- */
+
+/* будет выскакивать БУРГЕР-МЕНЮ при уменьшеении ЭКРАНОВ  */
+
+@media (max-width:767px) {
+    .header__body { /* уменьшаем ВЫСОТУ ШАПКИ header  */
+        height: 50px;
+    }
+    .header__logo { /* уменьшаем размер ЛОГО-фото */
+        flex: 0 0 40px;
+    }
+    /* это будет бургер меню */
+    .header__burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 3;
+    } 
+
+
+    /* --------------------------здесь мы РИСУЕМ ПОЛОСОЧКИ БУРГЕР */ /* общие настройки-------------------------- */
+    .header__burger:before,
+    .header__burger:after {
+        content: "";
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s; /* теперь переходят плавно полосочки */
+    }
+
+    /* --------------------------здесь мы РИСУЕМ Верхнюю ПОЛОСУ БУРГЕР-------------------------- */
+    .header__burger:before {
+        top: 0;  
+    }
+     /* --------------------------здесь мы РИСУЕМ Нижнюю ПОЛОСУ БУРГЕР-------------------------- */
+    .header__burger:after {
+        bottom: 0;  
+    }
+     /* --------------------------здесь мы РИСУЕМ СРЕДНЮЮ ПОЛОСУ БУРГЕР--------------------------- */
+    .header__burger span {
+        position: absolute;
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 9px;
+        transition: all 0.3s ease 0s; /* теперь переходят плавно полосочки */
+    }
+
+    .header__burger.active:before {
+        transform: rotate(45deg); /* делаем палочку теперь на 45`,т.е.она стала по диагонале */
+        top: 9px; /* теперь подняли ее на центр */
+    }
+    .header__burger.active:after {
+        transform: rotate(-45deg); /* делаем палочку теперь на 45`,т.е.она стала по диагонале */
+        bottom: 9px; /* теперь подняли ее на центр */
+    }
+    .header__burger.active span {
+        transform: scale(0); /* убираем среднюю полосочку */
+    }
+    /* --------------------------здесь мы Закончили РИСОВАТЬ - БУРГЕ-------------------------- */
+
+
+
+    /* -----------------теперь стилизуем МЕНЮ----------------- */
+    .header__menu {
+        /* Делаем ПЛАСТИНУ которая будет ВЫЕЗЖАТЬ для пунктов меню */
+        position: fixed;
+        top: -100%; /* меню будет сьезжать сверху */
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* будет скрол при повороте экрана телефона */
+        transition: all 0.3s ease 0s; /* теперь переходит плавно */    
+        background-color: #010152; 
+        padding: 70px 10px 20px 10px; /* пункты меню вытащили из розовой плашки в РЯД */
+    }
+    .header__menu.active {
+        top: 0;
+    }
+
+    .header__list {
+        display: block; /* меню пункты встали в КОЛОНКУ */
+        text-align: center;
+    }
+    .header__list li { /* теперь сделали отступы между строчками меню в колонке */
+        margin: 0px 0px 20px 0px;
+    }
+
+    .header__list li {
+    font-size: 27px; /* сделали шрифт больше (с 20рх на 27рх), для СКРОЛА телефонов в горизонтальном положении!*/
+    }
+
+}/* -----------------------------------------------закончили МЕДИА-ЗАПРОСЫ-------------------------------------------- */
+
+
+
+
+
+
+/* -----------------------------------------------page-Image-Gallerey--------------------------------------------------------------- */
+
+.Image-Gallerey-conteiner { /* свой ограничивающий контейнер */
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 0 20px;
+    padding: 150px 0px 50px 0px;
+}
+@media (max-width:767px) {
+    .Image-Gallerey-conteiner {
+        padding: 80px 0px 50px 0px;
+    }
+}
+.Image-Gallerey-TITLE {
+    padding: 50px 0px 50px 0px;
+    text-align: left;
+    line-height: 50%;
+    font-size: 25px;
+    font-weight: 900;
+    color: #fdfdfd;
+    font-family: 'Noto Sans Mono', monospace;
+
+}
+
+.Image-Gallerey-conteiner .img-conteiner { /* поставили все по ЦЕНТРУ с отступами между собой */
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.Image-Gallerey-conteiner .img-conteiner .img  {
+    width: 350px;
+    height: 250px;
+    border: 10px solid #fff;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    padding: 15px;
+    color: #fff;
+}
+.Image-Gallerey-conteiner .img-conteiner .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.Image-Gallerey-conteiner .img-conteiner .img:hover img{
+    transform: scale(1.1);  /* красивый эфект увеличения фото */
+}
+
+/* - */
+
+.Image-Gallerey-conteiner .pop-up {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.8); /* затемнили фон под большим фото */
+
+    display: none; /* убрали нарисованый крестик */
+}
+
+/* размещаем большое фото ПО ЦЕНТРУ */
+.Image-Gallerey-conteiner .pop-up img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid #fff;
+    border-radius: 8px;
+    width: 500px; /* здесь задаем размер фото которое будет УВЕЛИЧИВАТЬСЯ при нажатии */
+}
+
+
+/* теперь размещаем крестик */
+.Image-Gallerey-conteiner .pop-up span {
+    position: fixed;
+    z-index: 2;
+    top: 150px;
+    right: 350px;
+    width: 40px;
+    height: 40px;
+    background: #fff; 
+
+    font-size: 50px; /* ---задали размер крестику--- */
+    font-weight: 900;
+    text-align: center; /* поставили ПО ЦЕНТРУ белого фона */
+    line-height: 40px;  /* поставили ПО ЦЕНТРУ белого фона */
+    border-radius: 50%;
+    cursor: pointer;
+}/* теперь размещаем крестик */
+@media (max-width:1290px) {
+    .Image-Gallerey-conteiner .pop-up span {
+        position: fixed;
+        top: 150px;
+        right: 50px;
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (max-width:767px) {
+    .Image-Gallerey-conteiner .pop-up span {
+        position: fixed;
+        top: 150px;
+        right: 50px;
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (max-width:480px) {
+    .Image-Gallerey-conteiner .pop-up span {
+        position: fixed;
+        top: 150px;
+        right: 50px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* теперь активируем крестик в js */
+
+/* -------------------------------------------------page-Image-Gallerey---------------------------------------------------- */
+
+
+
+
+
+
+
+/* ------------------------------------footer----------------------------------- */
+.footer {
+    background: linear-gradient(to bottom, #000099 0%, #01010e 100%);
+    border-top: 1px solid #686767;
+}
+.page-CONTACKTS-my {
+    padding: 50px 0px 50px 0px;
+}
+.CONTACKTS-my {
+}
+
+
+.page-CONTACKTS-my_conteiner {
+}
+._conteiner {
+}
+
+.span_Adam-Sendler {
+    color: #ff970f;
+    font-size: 25px;
+    font-weight: 800;
+    text-shadow: 1px 0 0 #0e0d0d;
+}
+.span_Adam-Sendler:hover {
+    cursor: pointer;
+    transition: 0.8s;
+    text-decoration: underline;
+}
+
+.page-CONTACKTS-my_TITLE {
+    font-size: 20px;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #faf6f6;
+}
+@media (max-width:972px) {
+    .page-CONTACKTS-my_TITLE  {
+        font-size: 18px;
+        line-height: 160%;
+    }
+    
+}
+
+.page-CONTACKTS-my_tel >*:not(:last-child) {
+    padding: 0px 0px 15px 0px;
+}
+.page-CONTACKTS-my_tel {
+    padding: 20px 0px 0px 0px;
+    color: #faf6f6;
+    font-size: 20px;
+}
+.page-CONTACKTS-my_tel {
+
+}
+._tel1:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.page-CONTACKTS-my_icon {
+    display: flex;
+    padding: 30px 0px 30px 0px;
+}
+@media (max-width:972px) {
+    .page-CONTACKTS-my_icon {
+        flex-wrap: wrap;
+    }
+}
+
+.page-CONTACKTS-my_icon  img {
+    height: 50px;
+    margin-right: 20px;
+}
+@media (max-width:440px) {
+    .page-CONTACKTS-my_icon  img {
+        margin-bottom: 20px;
+    }
+}
+
+.page-CONTACKTS-my_icon  img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.8s;
+    opacity: 0.5;
+}
+
+.page-CONTACKTS-my_recommended {
+    padding: 20px 0px 0px 0px;
+    color: #faf6f6;
+    font-size: 20px;
+    font-style: italic;
+}
+@media (max-width:972px) {
+    .page-CONTACKTS-my_recommended  {
+        font-size: 18px;
+        line-height: 160%;
+    }
+    
+}
+/* ------------------------------------footer----------------------------------- */

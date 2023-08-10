@@ -1,0 +1,190 @@
+<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
+<!DOCTYPE html>
+<!-- Оболочка документа, указываем язык содержимого -->
+<html lang="ru">
+	<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
+	<head>
+		<!-- Заголовок страницы в браузере -->
+		<title>Finance</title>
+        <!---Подключаем css-->
+		<link rel="stylesheet" href="css/portfolio.style.css" />
+
+        <link rel="stylesheet" href="css/animate.css"> <!-- подключили для анимации с сайта https://wowjs.uk/docs.html -->
+
+		<!-- Кодировка страницы -->
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+    <!-- Отображаемое тело страницы -->
+    <body>
+
+        <!-- Оболочка для демонстрации -->
+    <div class="wrapper"> <!-- wrapper -->
+            <!-- Контент -->
+            <header class="header">                                                          <!-- -------header------------- -->
+                <div class="conteiner"> <!-- который ограничит ШИРИНУ КОНТЕНТНОЙ ЧАСТИ -->   <!-- -------conteiner------------- -->
+                    <div class="header__body"> <!-- Флекс-контейнер оболочка для logo-->
+ 
+                            <div class="header__burger"> <!-- это будет бургер меню ГОРИЗОНТАЛЬНЫЕ ПОЛОСКИ -->
+                                <span></span> <!-- здесь будем рисовать СРЕДНЮЮ ПОЛОСКУ МЕНЮ -->
+                            </div>
+
+                                <nav class="header__menu">  <!-- создаем наше меню-ссылки -->   <!-- ------------menu_header-------------- -->
+                                     <ul class="header__list"> <!-- оболочка для пунктов меню -->
+                                        <li class="menu_header_link"><a href="index.html" class="menu_header_link1">Home</a></li>
+                                        <li class="menu_header_link"><a href="galereya.html" class="menu_header_link1">Gallerey</a></li>
+                                        <li class="menu_header_link"><a href="Portfolio.html" class="menu_header_link1 link_vip">Portfolio</a></li>
+                                        <li class="menu_header_link"><a href="Reviews.html" class="menu_header_link1">Reviews</a></li>
+                                        <li class="menu_header_link"><a href="contackts.html" class="menu_header_link1">Contacts</a></li>
+                                     </ul>
+                                </nav> 
+                                
+                                        <div class="header-right"> <!-- номера телефонов -->
+                                                <a href="#" class="header__logo"> <!-- внутри поместим номера телефонов  --> 
+                                                    tel:+35(058)238-45-85
+                                                </a> 
+                                                <a href="#" class="header__logo"> <!-- внутри поместим номера телефонов  --> 
+                                                    fax:+35(058)238-45-87
+                                                </a> <!-- ------------menu_header-------------- -->
+                                        </div>
+                    </div>  
+                </div>                                                         <!-- -------conteiner------------- -->
+            </header>                                                             <!-- -------header------------- -->
+
+<!-- ------------------------------------------------main---------------------------- -->
+<main class="main">
+
+<!-- ======================================page_Slick-слайдер=========================================== -->
+<section class="page_Slick-slider PAGE_Slick">
+    <div class="page_Slick-slider_conteiner _conteiner">
+
+
+        <!-- блок с большими фотографиями -->
+        <div class="sliderbig">
+
+            <div class="sliderbig__item">
+                <img src="img/04.jpg" alt="">
+            </div>
+    
+            <div class="sliderbig__item">
+                <img src="img/05.jpg" alt="">
+            </div>
+    
+            <div class="sliderbig__item">
+                <img src="img/06.jpg" alt="">
+            </div>
+    
+            <div class="sliderbig__item">
+                <img src="img/07.jpg" alt="">
+            </div>
+    
+            <div class="sliderbig__item">
+                <img src="img/08.jpg" alt="">
+            </div>
+    
+            <div class="sliderbig__item">
+                <img src="img/09.jpg" alt="">
+            </div>
+    
+            <div class="sliderbig__item">
+                <img src="img/010.jpg" alt="">
+            </div>
+
+            <div class="sliderbig__item">
+                <img src="img/011.jpg" alt="">
+            </div>
+
+            <div class="sliderbig__item">
+                <img src="img/012.jpg" alt="">
+            </div>
+
+        </div>
+
+
+                    <!-- блок с маленькими фотографиями -->
+                    <div class="slider">
+
+                        <div class="slider__item">
+                            <img src="img/04-small.jpg" alt="">
+                        </div>
+                
+                        <div class="slider__item">
+                            <img src="img/05-small.jpg" alt="">
+                        </div>
+                
+                        <div class="slider__item">
+                            <img src="img/06-small.jpg" alt="">
+                        </div>
+                
+                        <div class="slider__item">
+                            <img src="img/07-small.jpg" alt="">
+                        </div>
+                
+                        <div class="slider__item">
+                            <img src="img/08-small.jpg" alt="">
+                        </div>
+                
+                        <div class="slider__item">
+                            <img src="img/09-small.jpg" alt="">
+                        </div>
+                
+                        <div class="slider__item">
+                            <img src="img/010-small.jpg" alt="">
+                        </div>
+
+                        <div class="slider__item">
+                            <img src="img/011-small.jpg" alt="">
+                        </div>
+
+                        <div class="slider__item">
+                            <img src="img/012-small.jpg" alt="">
+                        </div>
+
+                    </div>
+
+    </div>
+</section>
+<!-- ======================================page_Slick-слайдер=========================================== -->
+
+
+            
+        
+</main>
+<!-- ------------------------------------------------main---------------------------- -->
+        
+</div>
+        
+        
+<!-- ------------------------------------------------footer---------------------------- -->
+        
+<footer class="footer" ></footer>
+        
+        
+<!-- ------------------------------------------------footer---------------------------- -->
+        
+        
+        
+        
+                    <!-- Подключаем jQuery` -->
+                    <script src="https://code.jQuery.com/jQuery-3.4.1.slim.min.js" ></script> <!-- скопровали ссылку с сайта JQuery -->
+        
+                    <!-- Подключаем слайдер Slick -->
+                    <script src="js/slick.min.js"></script>
+        
+                    <!-- Подключаем файл jS скриптов -->
+                    <script src="js/script.js" ></script> <!-- здесь мы будем слайды настраивать -->
+        
+                    
+                    <script type="text/javascript"></script>
+        
+                    <!-- Подключили для анимации -->
+                    <script src="js/wow.min.js"></script> <!-- ------------подключили для анимации с сайта https://wowjs.uk/docs.html----------------- -->
+                            <script>                 
+                            new WOW().init(); 
+                            </script>               <!-- ---------подключили для анимации с сайта https://wowjs.uk/docs.html----------------------------------- -->
+            
+        
+            </body>
+            </html>
+        
